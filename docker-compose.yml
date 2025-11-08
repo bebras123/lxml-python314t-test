@@ -1,0 +1,9 @@
+
+services:
+  python314-lxml:
+    build: .
+    container_name: python314t
+    volumes:
+      - .:/src
+    working_dir: /src
+    
