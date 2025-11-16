@@ -2,11 +2,23 @@ import os
 import random
 import string
 
-ELEMENTS = ["letter", "note", "message", "entry", "record", "item", "doc"]
+ELEMENTS = ["letter", "note", "message", "entry", "record", "item", "doc",
+            "animal", "cat", "dog", "some", "random", "pop", "apple",
+            "orange", "banana", "grape", "cherry", "date", "fig", "kiwi",
+            "lemon", "mango", "nectarine", "peach", "plum", "pear", "quince", "raisin",
+            "strawberry", "tangerine", "ugli", "watermelon", "apricot", "blueberry",
+            "blackberry", "cranberry", "dragonfruit", "elderberry", "gooseberry",
+            "honeydew", "jackfruit", "kumquat", "lime", "lychee", "mandarin", "mulberry",
+            "olive", "papaya", "passionfruit", "persimmon", "pineapple", "pomegranate",
+            "raspberry", "starfruit", "tomato", "grapefruit", "cantaloupe", "currant",
+            "figs", "datefruit", "jabuticaba", "longan", "soursop", "breadfruit", "clementine"
+            ]
+
 
 def random_letter():
     """Return a single random uppercase letter."""
     return random.choice(string.ascii_uppercase)
+
 
 def write_element(f, depth=0, max_depth=10):
     """
@@ -16,7 +28,7 @@ def write_element(f, depth=0, max_depth=10):
     tag = random.choice(ELEMENTS)
     letter_val = random_letter()
     indent = "  " * depth
-    f.write(f'{indent}<{tag} letter="{letter_val}">\n')
+    f.write(f'{indent}<{tag} letter="{letter_val}" number="{random.randint(1, 50000)}">\n')
 
     # Randomly add children if depth < max_depth
     if depth < max_depth and random.random() < 0.5:
@@ -25,6 +37,7 @@ def write_element(f, depth=0, max_depth=10):
             write_element(f, depth + 1, max_depth)
 
     f.write(f'{indent}</{tag}>\n')
+
 
 def generate_large_xml(filename="huge_nested.xml", target_size_mb=300):
     target_size_bytes = target_size_mb * 1024 * 1024
@@ -41,8 +54,8 @@ def generate_large_xml(filename="huge_nested.xml", target_size_mb=300):
 
         f.write('</root>\n')
 
-    print(f"XML file '{filename}' created with size {os.path.getsize(filename)/(1024*1024):.2f} MB")
+    print(f"XML file '{filename}' created with size {os.path.getsize(filename) / (1024 * 1024):.2f} MB")
+
 
 if __name__ == "__main__":
     generate_large_xml("example.xml", target_size_mb=100)
-
