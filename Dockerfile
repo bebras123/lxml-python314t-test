@@ -25,10 +25,10 @@ RUN /root/envs/py313/bin/python -m ensurepip --upgrade
 RUN /root/envs/py314/bin/python -m ensurepip --upgrade
 RUN /root/envs/py314t/bin/python -m ensurepip --upgrade
 
-RUN uv run --python /root/envs/py312/bin/python -m pip install "lxml" "Cython>=3.2.0" "setuptools"
-RUN uv run --python /root/envs/py313/bin/python -m pip install "lxml" "Cython>=3.2.0" "setuptools"
-RUN uv run --python /root/envs/py314/bin/python -m pip install "lxml" "Cython>=3.2.0" "setuptools"
-RUN uv run --python /root/envs/py314t/bin/python -m pip install "Cython>=3.2.0" "setuptools"
+RUN uv run --python /root/envs/py312/bin/python -m pip install "lxml" "Cython>=3.2.2" "setuptools"
+RUN uv run --python /root/envs/py313/bin/python -m pip install "lxml" "Cython>=3.2.2" "setuptools"
+RUN uv run --python /root/envs/py314/bin/python -m pip install "lxml" "Cython>=3.2.2" "setuptools"
+RUN uv run --python /root/envs/py314t/bin/python -m pip install "Cython>=3.2.2" "setuptools"
 
 
 # Add aliases
